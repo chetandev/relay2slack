@@ -11,3 +11,9 @@ To install relay2slack, simply:
 .. code-block:: bash
 
     $ pip install relay2slack
+
+To run relay2slack in the foreground:
+
+.. code-block:: bash
+
+    $ relay2slack
