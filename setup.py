@@ -7,7 +7,7 @@ def readme():
 
 
 setup(name='relay2slack',
-      version='0.1',
+      version='0.2.1',
       description='relay2slack is a tool for capturing and forwarding incoming Slack webhook events',
       long_description=readme(),
       classifiers=['Intended Audience :: Developers',
