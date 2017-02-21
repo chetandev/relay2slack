@@ -1,0 +1,11 @@
+[Unit]
+Description=Slack proxy relay
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/relay2slack
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

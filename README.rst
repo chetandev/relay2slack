@@ -17,3 +17,5 @@ To run relay2slack in the foreground:
 .. code-block:: bash
 
     $ relay2slack
+
+If you would like to daemonize relay2slack, refer to `docs/ <docs/>`_ for supported methods.
