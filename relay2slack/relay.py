@@ -1,15 +1,24 @@
 import os
+import sys
 import requests
 from flask import Flask, request
 app = Flask(__name__)
 
+try:
+    http_proxy = os.environ['HTTP_PROXY']
+    https_proxy = os.environ['HTTPS_PROXY']
+    TOKEN = os.environ['SLACK_TOKEN']
+
+except KeyError as e:
+    print("Ensure the environment variable {} is set.".format(e.args[0]))
+    sys.exit(1)
+
 PROXIES = {
-    'http': os.environ['HTTP_PROXY'],
-    'https': os.environ['HTTPS_PROXY']
+    'http': http_proxy,
+    'https': https_proxy
 }
 
 SLACK_BASE = 'https://hooks.slack.com/services'
-TOKEN = os.environ['SLACK_TOKEN']
 
 
 @app.route('/relay', methods=['POST'])
