@@ -7,7 +7,7 @@ app = Flask(__name__)
 try:
     http_proxy = os.environ['HTTP_PROXY']
     https_proxy = os.environ['HTTPS_PROXY']
-    TOKEN = os.environ['SLACK_TOKEN']
+    webhook_url = os.environ['SLACK_URL']
 
 except KeyError as e:
     print("Ensure the environment variable {} is set.".format(e.args[0]))
@@ -32,7 +32,7 @@ def webhook_relay():
 
 def forward_request(payload):
 
-    url = SLACK_BASE + TOKEN
+    url = webhook_url
 
     r = requests.post(url,
                       proxies=PROXIES,
